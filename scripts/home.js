@@ -1,7 +1,7 @@
 
 var i = 0;
  function slideimage(){
-	var imgs = [ "images/anhlulut1.jpg", "images/anhlulut2.jpg","images/anhlulut3.jpg","images/anhlulut4.jpg","images/anhlulut5.png"];
+	var imgs = ["images/anhlulut1.jpg","images/anhlulut2.jpg","images/anhlulut3.jpg","images/anhlulut4.jpg","images/anhlulut5.png",];
 	document.getElementById('slides').src = imgs[i];
 	console.log(i)
 	i++;
