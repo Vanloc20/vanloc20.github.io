@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<style>
+        ​
+        .tongthe {
+            text-align: center;
+            background-color: rgb(139, 200, 224);
+            padding-top: 10px;
+        }
+        ​
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;  ​
+        }
+        ​
+        th {
+            background-color: rgb(75, 148, 197);
+            width: 300px;
+            height: 70px;
+            text-align: center;
+        }
+        ​
+        td {
+            text-align: center;
+            width: 300px;
+            height: 70px;
+        }
+        ​
+        table tr:nth-child(even) {
+            background-color: lightseagreen;
+        }
+        ​
+        table tr:nth-child(odd) {
+            background-color: lightskyblue;
+        }
+        ​
+        .thongtin {
+            text-align: center;
+        }
+        ​
+        h3 {
+            text-align: right;
+            color: rgb(187, 17, 17);
+            ​
+        }
+        ​
+        h3:hover {
+            color: rgb(241, 34, 34);
+            ​
+        }
+        ​
+        ​
+        input {
+            border-radius: 4px;
+            outline: 0;
+            color: rgb(26, 110, 110);
+            border: darkcyan;
+            background-color: rgb(248, 248, 234);
+        }
+        ​
+        h1 {
+            color: blue;
+        }
+        ​
+        h1:hover {
+            color: rgb(28, 25, 180);
+        }
+        ​
+        td:hover {
+            color: rgb(235, 117, 33);
+            ​
+        }
+        ​
+        th:hover {
+            color: rgb(56, 56, 201);
+            font-size: 18px;
+            ​
+        }
+        ​
+        input:hover {
+            background-color: rgb(228, 218, 133);
+            color: rgb(241, 34, 34);
+        }
+        Collapse
+
+
+        .dangxuat {
+            text-align: right;
+        }
+ 
+ </style>
+
+
+</head>
+
+<body onload="getData2()">
+    <div class="tongthe">
+        <form>
+            <h1>QUẢN LÝ DANH SÁCH ỦNG HỘ </h1>
+            <br>
+
+            <h3>Tổng tiền : <span id='tong'></span></h3>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Số Tài Khoản</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Quê Quán</th>
+                    <th>Số Tiền</th>
+
+                </tr>
+            </thead>
+            <tbody id="bang">
+            </tbody>
+        </table>
+
+    </div>
+    <br>
+    <div class = 'dangxuat'><button class="btn btn-info" onclick="dangXuat()">Đăng Xuất</button></div>
+
+    <script src="../scripts/danh_sach_ung_ho.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <script>
+        const daDangNhap = localStorage.getItem("DaDangNhap")
+
+        if (!daDangNhap)
+            window.location.href = './formdangnhaptrangquanly.html'
+
+        function dangXuat() {
+            localStorage.removeItem("DaDangNhap")
+            window.location.href = './formdangnhaptrangquanly.html'
+        }
+    </script>
+</body>
+
+</html>

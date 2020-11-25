@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<title>bái tâjp cuối khoá modun 1</title>
+	<link rel="stylesheet" href="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- <link rel="stylesheet" href="./demoform_1.css"> -->
+	<!-- Lib -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./lib/fontawesome/css/fontawesome.css">
+	<link rel="stylesheet" href="./lib/own-carousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="./lib/own-carousel/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/fontawesome/css/fontawesome.min.css">
+
+	<!-- video -->
+
+	<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+
+	<!-- App styles -->
+	<link rel="stylesheet" href="./styles/style.css">
+</head>
+<style>
+	body{
+		font-family: inherit;
+	}
+	#container1{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#benner1{
+		width: 100%;
+		height: auto;
+	}
+	#tintuc {
+		background-color: #DEDFDA;
+		padding:  1rem;
+	}
+	#tieude_baiviet{
+		color: #622720;
+	}
+	#ngay_dang{
+		font-size: 15px;
+		color: #0023EC;
+		font-family: Courier New
+		Courier;
+	}
+	
+	
+	#dinh_dang_anh img{
+		display: block;
+		margin: auto;
+		margin-top: 10px;
+		width: 600px;
+		height: 300px;
+
+	}
+	#noi_dung_tin_tuc1{
+		margin-top: 20px;
+		font-size: 15px;
+	}
+
+
+	#tacgia{
+		float: right;
+		padding-right: 20px;
+	}
+	
+
+	#noi_dung_tong_hop {
+		background-color: #EEE9E6;
+	}
+
+	.noi_dung_con{
+		display: flex;
+	    justify-content: space-between;
+	    margin-bottom: 0px;
+	    padding: 8px;
+	}
+
+	.noi_dung_con__hinhanh {
+		flex-shrink: 0;
+		width: 130px;
+		height:  100px;
+		box-sizing: border-box; 
+	}
+
+	.noi_dung_con__hinhanh img {
+		object-fit: cover;
+		width:  100%;
+		height:  100%;
+	}
+
+	.noi_dung_con__tieu-de {
+		flex-grow: 1;
+		margin-left: 8px;
+	}
+
+	#tin_moi_nhat{
+		width: 350px;
+		height: 40px;
+		text-align: center;
+		padding-top: 15px;
+	}
+
+
+	h4{
+		font-weight: bold;
+	}
+
+
+
+</style>
+
+
+<body>
+
+	<header id="showcase">
+		<div style="display: flex;">
+			<div id="logo">
+				<img src="./images/anhlogo1.png" alt="" width="250" height="70">
+			</div>
+
+			<div id="menu2">
+				<ul>
+					<li><a href="./index.html" onclick="cuonToi('showcase')" title=""> Trang chủ</a></li>
+					<li><a href="./index.html" onclick="cuonToi('conten')" title=""> Tin Tức</a></li>
+					<li><a href="./index.html" onclick="cuonToi('su_kien')" title=""> Lời Kêu Gọi</a></li>
+					<li><a href="https://nchmf.gov.vn/Kttvsite/vi-VN/1/quang-tri-w6.html" title=""> Thời Tiết</a></li>
+					<li><a href="./form_duc/form_ngan_hang.html" title=""> Ủng Hộ Trực Tuyến</a></li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div id="text1">
+			<marquee id="marquee"></marquee>
+		</div>
+	</header>
+
+	<div id="container1">
+		<div id="tintuc" >
+			<h1 id="tieude_baiviet"></h1>
+
+			<div id="ngay_dang">
+				<p>Ngày cập nhật: <span id="ngay_dang_bai"></span>
+				</div>	
+
+				<h3 id="dia_phuong"></h3>
+
+				<div >
+					<b id="noi_dung_in_dam"></b>
+				</div>
+
+				<div> 
+					<p id="noi_dung_tin_tuc"></p>
+				</div>
+
+				<div id="dinh_dang_anh">
+					<img id="image"  src="" alt="">	
+				</div>
+
+				<div> 
+					<p id="noi_dung_tin_tuc1"></p>
+				</div>
+
+				<div id="dinh_dang_anh">
+					<img id="image1"  src="" alt="">	
+				</div>
+
+				<div id="tacgia">
+					<p> tác giả: <i id="tac_gia_bai_viet"></i></p>
+				</div>
+		</div>
+
+		<div id="noi_dung_tong_hop">
+			<div id="tin_moi_nhat" >
+				<h4>TIN MỚI NHẤT</h4>
+			</div>
+			<hr>
+
+			<div id="tinmoi">
+			</div>
+		</div>		
+	</div>
+
+	<footer>
+		<p>CodeGym Quảng Trị class: c0902g1<br>
+		<a href="mailto:hege@example.com">CodeGymQuangtri@gmail.com</a></p>
+	</footer>
+</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="./lib/own-carousel/owl.carousel.min.js"></script>
+	<script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
+
+	<!-- App Scripts -->
+	<script src="./scripts/home.js"></script>
+	<script src="./scripts/cac_huyen_nhan_ung_ho.js"></script>
+	<script src="./scripts/danhsachungho.js"></script>
+
+	<script>
+		hienThiChiTietBaiViet();
+	</script>
+</body>
+
+
+</html>
+</html>			
+
+
+

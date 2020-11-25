@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        h4,
+        h5,
+        h6,
+        p {
+            text-align: center;
+        }
+
+        .color {
+            color: mediumblue;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 140px;
+            height: 100px;
+        }
+
+        form {
+            width: 800px;
+            height: 800px;
+            margin: 0 auto;
+
+        }
+        span{
+            font-size: 15px;
+            color: red;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h4>THÔNG TIN CHUYỂN KHOẢN ỦNG HỘ MIỀN TRUNG</h4>
+    <p>Thanh toán online bằng thẻ ngân hàng nội địa</p>
+    <h6>Chọn ngân hàng</h6>
+    <table id="bang">
+    </table>
+
+    <h6 id="thongTinNganHang" class="color"></h6>
+    <form id="formUngHo">
+        <input hidden id="chiSoNganHang" type="text" />
+
+        <div class="form-row">
+            <div class="col">
+                <label for="">Tên Chủ Tài Khoản</label>
+                <input id="ten" type="text" class="form-control" >
+                <span id="kiemtraten"></span>
+            </div>
+            <div class="col">
+                <label for="">Số Tài Khoản</label>
+                <input id="soTaiKhoan" type="number" class="form-control">
+                <span id="kiemtrasotk"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <label for="">Số Tiền Ủng Hộ</label>
+                <input id="tienUngHo" type="number"  class="form-control">
+                <span id="kiemtrasotien"></span>
+            </div>
+            <div class="col">
+                <label for="">Số điện thoại</label>
+                <input id="soDienThoai" type="number" class="form-control">
+    
+                <span id="kiemtrasodt"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="">Địa chỉ</label>
+                <input id="diachi" type="text"  class="form-control">
+                
+                <span id="kiemtradiachi"></span>
+            </div>
+         </div><br>
+            <button type="button"
+                onclick="postData(ten.value, diachi.value, soDienThoai.value, +tienUngHo.value,soTaiKhoan.value)";
+                class="btn btn-success btn-lg">Ủng Hộ</button>
+            <input type="reset" class="btn btn-danger btn-lg" value="Xóa">
+        
+    </form>
+
+    <script>
+        class TaiKhoanNhan {
+            maNganHang;
+            logo;
+            tenDayDu;
+            soTaiKhoan;
+            chuTaiKhoan;
+            constructor(maNganHang, logo, tenDayDu, soTaiKhoan, chuTaiKhoan) {
+                this.maNganHang = maNganHang;
+                this.logo = logo;
+                this.tenDayDu = tenDayDu;
+                this.soTaiKhoan = soTaiKhoan;
+                this.chuTaiKhoan = chuTaiKhoan;
+            }
+        }
+        function inManHinh() {
+            document.getElementById("bang").innerHTML = logoNganHang();
+        }
+        function logoNganHang() {
+            var bang = ``;
+            for (let i = 0; i <= danhSachNganHang.length - 1; i++) {
+                if (i % 4 == 0)
+                    bang += `<tr>`
+                bang += `
+                   <td>
+                        <img src="./logoNganHang/${danhSachNganHang[i].logo}">
+                        <input onchange="chonNganHang(${i})" id="chonnganhang" type="radio" value="logonganhang" name="bankcode" >
+                   </td>`;
+                if ((i + 1) % 4 == 0)
+                    bang += `</tr>`
+            } return bang;
+        }
+        function chonNganHang(chiSo) {
+            document.getElementById("chiSoNganHang").value = chiSo;
+            document.getElementById("thongTinNganHang").innerHTML = danhSachNganHang[chiSo].maNganHang + "<br>" + danhSachNganHang[chiSo].tenDayDu
+        }
+       
+        var vcb = new TaiKhoanNhan("VCB-Vietcombank", "Vietcombank.PNG", "Ngân hàng Ngoại thương Việt Nam", "123", "123");
+        var bidv = new TaiKhoanNhan("BIDV", "BIDV.png", "Ngân hàng Đầu tư và Phát triển Việt Nam", "123", "123");
+        var mb = new TaiKhoanNhan("MB", "MB.PNG", "Ngân hàng Quân đội", "", "");
+        var tcb = new TaiKhoanNhan("TCB-Techcombank", "Techcombank.PNG", "Ngân hàng Kỹ Thương Việt Nam", "123", "123")
+        var acb = new TaiKhoanNhan("ACB", "ACB.PNG", "Ngân Hàng Á Châu", "123", "123")
+        var shb = new TaiKhoanNhan("SHB", "SHB.PNG", "Ngân hàng Sài Gòn-Hà Nội", "123", "123")
+        var msb = new TaiKhoanNhan("MSB", "MSB.PNG", "Ngân hàng Hàng Hải Việt Nam", "123", "123");
+        var oceanbank = new TaiKhoanNhan("Oceanbank", "Oceanbank.PNG", "Ngân hàng Đại Dương", "123", "123");
+        var gp = new TaiKhoanNhan("GPBank", "GPBANK.PNG", "Ngân hàng Dầu Khí Toàn Cầu", "123", "123");
+        var vp = new TaiKhoanNhan("VPbank", "VPbank.PNG", "Ngân hàng Việt Nam Thịnh Vượng", "123", "123");
+        var sacom = new TaiKhoanNhan("Sacombank", "Sacombank.PNG", "Ngân hàng Sài Gòn Thương Tín", "123", "123");
+        var scb = new TaiKhoanNhan("SCB", "SCB.PNG", "Ngân hàng Sài Gòn", "123", "123");
+        var danhSachNganHang = [
+            vcb, bidv, mb, tcb, acb, shb, msb, oceanbank, gp, vp, sacom, scb
+        ]
+        inManHinh();
+    </script>
+    <script src="../scripts/danh_sach_ung_ho.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

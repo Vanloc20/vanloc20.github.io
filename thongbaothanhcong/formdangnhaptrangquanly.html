@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Form Dang nhap trang quan tri</title>
+	<script src="js/jquery.min.js"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords"
+		content="Classy Login form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+	button {
+		background-color: rgb(48, 194, 73);
+		height: 40px;
+		width: 465px;
+		color: white;
+		outline: 0;
+		border: 0px;
+		border-radius: 4px;
+	}
+	button:hover{
+		background-color: rgb(7, 150, 19);
+		color: rgb(223, 193, 154);
+	}
+	button:active{
+		background-color: rgb(7, 119, 22);
+		color: brown;
+	}
+</style>
+
+<body>
+
+	<div class="header">
+		<div class="header-main">
+			<h1>Trang Quản Trị</h1>
+			<div class="header-bottom">
+				<div class="header-right w3agile">
+
+					<div class="header-left-bottom agileinfo">
+
+						<form action="#" method="post">
+							<input id="tenTaiKhoan" type="text" value="Tên đăng nhập" name="name"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Tên đăng nhập';}" />
+							<input id="nhapMatKhau" type="password" value="Mật Khẩu" name="password"
+								onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mật Khẩu';}" />
+							<i id="nhapsai"></i>
+							<div class="remember">
+								<span class="checkbox1">
+									<label class="checkbox"><input type="checkbox" checked="" name=""><i> </i>Bạn là
+										quản trị viên</label>
+								</span>
+								<div class="forgot">
+									<h6><a href="#">Quên Mật Khẩu?</a></h6>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<br>
+							<button onclick="kiemTraTaiKhoanDangNhap(tenTaiKhoan.value, nhapMatKhau.value)"
+								type="button">Đăng Nhập</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>© 2020 Form đăng nhập.Thực hiện bởi team Codegym Quảng Trị <a href="http://w3layouts.com/"
+				target="_blank"></a></p>
+	</div>
+
+	<script>
+		function kiemTraTaiKhoanDangNhap(taiKhoan, matKhau) {
+			const TAIKHOAN = "admin";
+			const MATKHAU = "12345";
+
+			if (taiKhoan == TAIKHOAN && matKhau == MATKHAU) {
+				localStorage.setItem("DaDangNhap", true)
+
+				window.location.href = "./quanlydanhsachungho.html";
+			}
+			else {
+				document.getElementById("nhapsai").innerHTML = "Sai tài khoản hoặc mật khẩu.Vui lòng nhập lại";
+				document.getElementById("nhapsai").style.color = 'red'
+
+			}
+		}
+	</script>
+</body>
+
+</html>
